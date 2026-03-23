@@ -15,7 +15,7 @@ When invoked, the skill analyzes your entire project — code, docs, git history
 
 ## Usage
 
-In Claude Code, run:
+In Claude Code, on any of your working project, run:
 
 ```
 /shark-tank
