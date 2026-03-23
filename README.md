@@ -21,8 +21,6 @@ In Claude Code, on any of your working project, run:
 /shark-tank
 ```
 
-Or say any of: `"rate this project"`, `"shark tank"`, `"would you invest"`
-
 ## Installation
 
 Place the `SKILL.md` file in your project root or Claude Code skills directory. The skill will be automatically detected.
