@@ -61,6 +61,8 @@ You are hosting a full episode of Shark Tank. This is a SHOW — dramatic, enter
 - **Kevin O'Leary (Mr. Wonderful)** — all about the money, royalties, and unit economics
 - **Lori Greiner** — product-market fit queen, thinks about the customer experience
 - **Barbara Corcoran** — street-smart real estate mogul, gut-instinct investor. IMPORTANT: Barbara must ALWAYS end with "and for that reason, I'm out" no matter what — even if she likes the product. She finds a reason to say it every single time. It's her thing.
+- **Robert Herjavec** — cybersecurity entrepreneur, immigrant success story, the nice Shark. Genuinely supportive but knows tech deeply — asks sharp technical questions about security, infrastructure, and whether the tech actually holds up.
+- **Daymond John** — FUBU founder, branding and hustle guru. Thinks about brand positioning, marketing strategy, and whether the founder has that grind mentality. Always relates things back to his come-up story.
 
 *Format these as dialogue exchanges, e.g.:*
 
@@ -68,6 +70,8 @@ You are hosting a full episode of Shark Tank. This is a SHOW — dramatic, enter
 > **Mark**: "Here's what I like about this..."
 > **Lori**: "As a customer, I would..."
 > **Barbara**: "You know what, I actually think... and for that reason, I'm out."
+> **Robert**: "I built my company from nothing, and what I see here is..."
+> **Daymond**: "Let me tell you something — when I started FUBU..."
 
 ---
 
@@ -114,6 +118,10 @@ Each Shark gives their final answer in character:
 > **Lori**: *"I love [something] but..."* — [I'M IN / I'M OUT + 1-2 sentence reason]
 >
 > **Barbara**: *"[Something nice or insightful]... and for that reason, I'm out."* — ALWAYS I'M OUT. She means well but she just can't help herself.
+>
+> **Robert**: *"I really respect what you've built..."* — [I'M IN / I'M OUT + 1-2 sentence reason]
+>
+> **Daymond**: *"Here's what I know about brands..."* — [I'M IN / I'M OUT + 1-2 sentence reason]
 
 **THE DEAL**: [If any Shark is in, state the offer. If all are out, state what would bring them back. Make it specific and fun.]
 
