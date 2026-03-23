@@ -23,7 +23,7 @@ In Claude Code, on any of your working project, run:
 
 ## Installation
 
-Place the `SKILL.md` file in your project root or Claude Code skills directory. The skill will be automatically detected.
+Place the `SKILL.md` file in your user home (~/.claude/skills) or project root (project/.claude/skills) Claude Code skills directory. The skill will be automatically detected.
 
 ## Example Output
 
