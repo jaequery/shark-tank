@@ -856,6 +856,31 @@ a:hover {
   margin-top: 1rem;
 }
 
+/* Section subtitle */
+.section-subtitle {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+/* Brenda quotes */
+.brenda-quotes {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.brenda-quote {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  padding-left: 1.5rem;
+  font-style: italic;
+}
+
 /* Landing footer joke */
 .landing-footer {
   text-align: center;

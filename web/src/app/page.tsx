@@ -10,38 +10,65 @@ const EXAMPLE_EVALUATIONS = [
     name: "NomNom AI",
     score: 8,
     scoreClass: "score-high",
-    investor: "LANA",
+    investor: "KEITH",
     quote:
-      "This is the rare pitch where the product is already better than the pitch. That almost never happens in here.",
+      "Hold on. You\u2019re telling me restaurants are paying you to tell them they ordered too much lettuce? That\u2019s the most beautiful business model I\u2019ve ever heard. You\u2019re selling common sense as a service. I want equity.",
     deal: true,
   },
   {
     name: "ParkingPal",
-    score: 5,
+    score: 4,
     scoreClass: "score-mid",
-    investor: "KEITH",
+    investor: "MARC",
     quote:
-      "You're burning $40K a month to acquire users who pay you $3. That's not a business, that's a hobby with a credit card.",
+      "So your entire competitive advantage is\u2026 a push notification? My phone already gives me parking notifications. It\u2019s called my wife texting me \u2018you got a ticket again.\u2019",
     deal: false,
   },
   {
     name: "BlockchainPets",
-    score: 3,
+    score: 2,
     scoreClass: "score-low",
     investor: "BRENDA",
     quote:
-      "I actually think the idea is adorable. I genuinely wish you well... and for that reason, I'm out.",
+      "You know what, I actually love animals. I have three dogs. I once invested in a dog grooming company and tripled my money. So I really came into this one excited. But you want to put puppies on the blockchain, and I\u2019m pretty sure my dogs would rather eat the blockchain than live on it. I genuinely think you\u2019re a lovely person\u2026 and for that reason, I\u2019m out.",
     deal: false,
+  },
+  {
+    name: "VibeCodeHQ",
+    score: 6,
+    scoreClass: "score-mid",
+    investor: "DEVON",
+    quote:
+      "I built my entire brand selling T-shirts out of a basement. You know what I didn\u2019t have? A \u2018vibe.\u2019 I had hustle. Your landing page says \u2018vibe-driven development\u2019 three times and I still don\u2019t know what you do.",
+    deal: false,
+  },
+  {
+    name: "FitBuddy",
+    score: 7,
+    scoreClass: "score-high",
+    investor: "LANA",
+    quote:
+      "I\u2019m looking at this and thinking \u2014 you know what, this is actually delightful. The UX is clean, the onboarding took me thirty seconds. My only concern is that your \u2018AI personal trainer\u2019 told me to do 400 burpees and I\u2019m now emotionally damaged.",
+    deal: true,
   },
 ];
 
+const BRENDA_OUTS = [
+  "You remind me of my first husband. Very confident, very wrong. And for that reason, I\u2019m out.",
+  "I once turned down a deal that made someone a billionaire. I\u2019ll do it again right now. I\u2019m out.",
+  "My gut says yes but my gut also said yes to that restaurant in 2008. I\u2019m out.",
+  "This is the best pitch I\u2019ve heard all season. I\u2019m absolutely out.",
+  "I love everything about this except the part where I give you money. I\u2019m out.",
+  "You had me at hello. Lost me at \u2018blockchain.\u2019 I\u2019m out.",
+];
+
 const INVESTORS = [
-  { name: "Marc Havens", src: "/sharks/mark-cuban.jpg", focus: "Tech & Scalability" },
-  { name: "Keith O'Reilly", src: "/sharks/kevin-oleary.jpg", focus: "Unit Economics" },
-  { name: "Lana Gold", src: "/sharks/lori-greiner.jpg", focus: "Product-Market Fit" },
-  { name: "Brenda Callahan", src: "/sharks/barbara-corcoran.jpg", focus: "Gut Instinct", trait: "Always out." },
-  { name: "Roman Hart", src: "/sharks/robert-herjavec.jpg", focus: "Security & Infra" },
-  { name: "Devon James", src: "/sharks/daymond-john.jpg", focus: "Brand & Hustle" },
+  { name: "Marc Havens", src: "/sharks/mark-cuban.jpg", focus: "Tech & Scalability", trait: "Will ask about your AWS bill" },
+  { name: "Keith O'Reilly", src: "/sharks/kevin-oleary.jpg", focus: "Unit Economics", trait: "Wants royalties on your dreams" },
+  { name: "Lana Gold", src: "/sharks/lori-greiner.jpg", focus: "Product-Market Fit", trait: "Tested your app before you pitched" },
+  { name: "Brenda Callahan", src: "/sharks/barbara-corcoran.jpg", focus: "Gut Instinct", trait: "Has never not been out" },
+  { name: "Roman Hart", src: "/sharks/robert-herjavec.jpg", focus: "Security & Infra", trait: "Already found 3 vulnerabilities" },
+  { name: "Devon James", src: "/sharks/daymond-john.jpg", focus: "Brand & Hustle", trait: "Will relate this to T-shirts" },
 ];
 
 function LandingPage() {
@@ -56,7 +83,8 @@ function LandingPage() {
         <h1>DEAL TANK</h1>
         <p className="hero-tagline">Six Investors. One Brutal Verdict.</p>
         <p className="hero-subtitle">
-          The only pitch room where the feedback is real and the money isn't.
+          The only pitch room where the feedback is real, the money isn&apos;t,
+          and one investor will always be out.
         </p>
         <div style={{ marginTop: "2rem" }}>
           <button className="btn-cta" onClick={() => signIn("google")}>
@@ -89,8 +117,28 @@ function LandingPage() {
         </div>
       </div>
 
-      {/* The Panel */}
+      {/* Brenda's Greatest Hits */}
       <div className="landing-section">
+        <div className="landing-section-inner">
+          <div className="section-title" style={{ textAlign: "center" }}>
+            Brenda Callahan&apos;s Greatest Hits
+          </div>
+          <div className="section-subtitle">
+            In {BRENDA_OUTS.length} episodes, Brenda has invested in exactly 0 startups.
+            Her record remains perfect.
+          </div>
+          <div className="brenda-quotes">
+            {BRENDA_OUTS.map((quote, i) => (
+              <div key={i} className="brenda-quote">
+                &ldquo;{quote}&rdquo;
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* The Panel */}
+      <div className="landing-section landing-section-alt">
         <div className="landing-section-inner">
           <div className="section-title" style={{ textAlign: "center" }}>The Investors</div>
           <div className="investor-grid">
@@ -111,7 +159,7 @@ function LandingPage() {
       </div>
 
       {/* How It Works */}
-      <div className="landing-section landing-section-alt">
+      <div className="landing-section">
         <div className="landing-section-inner">
           <div className="section-title">How It Works</div>
           <div className="steps">
@@ -120,7 +168,8 @@ function LandingPage() {
               <div>
                 <div className="step-title">Write your pitch</div>
                 <div className="step-desc">
-                  Describe your startup in a few sentences. What you&apos;re building, who it&apos;s for, and why it matters.
+                  Describe your startup in a few sentences. Be honest.
+                  Keith can smell inflated metrics through the screen.
                 </div>
               </div>
             </div>
@@ -129,7 +178,8 @@ function LandingPage() {
               <div>
                 <div className="step-title">Watch the episode unfold</div>
                 <div className="step-desc">
-                  Six AI investors analyze your pitch, debate its merits, and deliver their verdicts in a full cinematic episode.
+                  Six AI investors debate your startup in a full cinematic episode.
+                  Expect tough love. Brenda will find a creative way to say no.
                 </div>
               </div>
             </div>
@@ -138,7 +188,8 @@ function LandingPage() {
               <div>
                 <div className="step-title">Get your scorecard</div>
                 <div className="step-desc">
-                  Scored across 7 dimensions with a final verdict. Brutally honest, occasionally flattering.
+                  Scored across 7 dimensions. No participation trophies.
+                  Devon will somehow relate your SaaS product to streetwear.
                 </div>
               </div>
             </div>
@@ -147,25 +198,29 @@ function LandingPage() {
       </div>
 
       {/* Final CTA */}
-      <div className="landing-section">
+      <div className="landing-section landing-section-alt">
         <div className="landing-section-inner">
           <div className="final-cta">
             <h2>Ready to face the tank?</h2>
             <p>
-              Your pitch will be questioned. Your model will be challenged.
-              Brenda will still be out.
+              Your pitch will be questioned. Your unit economics will be mocked.
+              Devon will tell you about his T-shirt empire. Brenda will wish you well
+              on your journey, and then leave.
             </p>
             <button className="btn-cta" onClick={() => signIn("google")}>
               Sign In to Pitch
             </button>
-            <div className="final-cta-fine">Free. No credit card. Just courage.</div>
+            <div className="final-cta-fine">
+              Free. No credit card. Emotional damage not covered by insurance.
+            </div>
           </div>
         </div>
       </div>
 
       {/* Footer easter egg */}
       <div className="landing-footer">
-        Brenda Callahan&apos;s participation does not constitute an endorsement.
+        Brenda Callahan&apos;s participation does not constitute an endorsement, an investment,
+        or any indication that she will not be out. She will be out.
       </div>
     </>
   );
