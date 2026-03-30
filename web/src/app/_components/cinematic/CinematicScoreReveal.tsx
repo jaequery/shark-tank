@@ -7,23 +7,21 @@ interface Score {
   oneLiner: string;
 }
 
-function scoreColor(score: number): string {
-  if (score >= 7) return "#22c55e";
-  if (score >= 4) return "#f59e0b";
-  return "#ef4444";
+function scoreBrightness(score: number): string {
+  if (score >= 7) return "#c9a55a";
+  if (score >= 4) return "#9e7e3e";
+  return "#6b5a3a";
 }
 
 interface CinematicScoreRevealProps {
   scores: Score[];
   overallScore: number;
-  onComplete: () => void;
   playScoreTick: () => void;
 }
 
 export default function CinematicScoreReveal({
   scores,
   overallScore,
-  onComplete,
   playScoreTick,
 }: CinematicScoreRevealProps) {
   const [visibleCount, setVisibleCount] = useState(0);
@@ -31,38 +29,32 @@ export default function CinematicScoreReveal({
   const [countUp, setCountUp] = useState(0);
   const rafRef = useRef<number | null>(null);
 
-  // Reveal scores one by one
   useEffect(() => {
     if (visibleCount >= scores.length) {
-      // Show total after all scores
-      const t = setTimeout(() => setShowTotal(true), 600);
+      const t = setTimeout(() => setShowTotal(true), 400);
       return () => clearTimeout(t);
     }
 
     const t = setTimeout(() => {
       setVisibleCount((c) => c + 1);
       playScoreTick();
-    }, 500);
+    }, 300);
     return () => clearTimeout(t);
   }, [visibleCount, scores.length, playScoreTick]);
 
-  // Count up total score
   useEffect(() => {
     if (!showTotal) return;
 
     const start = performance.now();
-    const duration = 1200;
+    const duration = 1000;
 
     function tick(now: number) {
       const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
       setCountUp(Math.round(eased * overallScore));
 
       if (progress < 1) {
         rafRef.current = requestAnimationFrame(tick);
-      } else {
-        // Done, move to verdict after a pause
-        setTimeout(onComplete, 1500);
       }
     }
 
@@ -70,10 +62,10 @@ export default function CinematicScoreReveal({
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
-  }, [showTotal, overallScore, onComplete]);
+  }, [showTotal, overallScore]);
 
   return (
-    <div className="cine-scores cine-fade-enter">
+    <div className="cine-scores" style={{ opacity: 1, animation: "fade-in 0.6s ease-out" }}>
       <div className="cine-scores-title">Post-Show Scorecard</div>
 
       {scores.slice(0, visibleCount).map((s, i) => (
@@ -83,7 +75,7 @@ export default function CinematicScoreReveal({
           style={{ animationDelay: `${i * 0.05}s` }}
         >
           <span className="cine-score-category">{s.category}</span>
-          <span className="cine-score-num" style={{ color: scoreColor(s.score) }}>
+          <span className="cine-score-num" style={{ color: scoreBrightness(s.score) }}>
             {s.score}
           </span>
           <span className="cine-score-liner">{s.oneLiner}</span>
@@ -92,9 +84,7 @@ export default function CinematicScoreReveal({
 
       {showTotal && (
         <div className="cine-score-total">
-          <span className="cine-score-total-num" style={{ color: scoreColor(overallScore / 7) }}>
-            {countUp}
-          </span>
+          <span className="cine-score-total-num">{countUp}</span>
           <span className="cine-score-total-label">/70</span>
         </div>
       )}

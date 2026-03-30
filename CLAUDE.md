@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a **Claude Code skill** — not a traditional software project. The entire product is a single `SKILL.md` file that turns Claude Code into a Shark Tank episode, evaluating any project the user runs it on.
+This is a **Claude Code skill** — not a traditional software project. The entire product is a single `SKILL.md` file that turns Claude Code into a Deal Tank episode, evaluating any project the user runs it on.
 
 There is no build system, no tests, no dependencies, and no runtime code. The skill is invoked via `/shark-tank` in Claude Code.
 
@@ -21,15 +21,15 @@ There is no build system, no tests, no dependencies, and no runtime code. The sk
 
 1. **Gather context** — Reads project docs, manifest files, git history, and directory structure in parallel
 2. **Analyze** — Evaluates across 7 dimensions (Problem & Market, Product, Tech & Code Quality, Traction & Momentum, Business Model, Competition & Moat, Team Signal)
-3. **Deliver** — Outputs a full Shark Tank episode with narrator, founder pitch, Shark dialogue, scorecard (X/70), and verdict
+3. **Deliver** — Outputs a full Deal Tank episode with narrator, founder pitch, Investor dialogue, scorecard (X/70), and verdict
 
-## Shark Panel
+## Investor Panel
 
-Six Sharks with distinct personalities: Mark Cuban (tech/scalability), Kevin O'Leary (money/unit economics), Lori Greiner (product-market fit/UX), Barbara Corcoran (gut instinct — **always says "I'm out"**), Robert Herjavec (cybersecurity/tech depth), Daymond John (branding/hustle).
+Six Investors with distinct personalities: Marc Havens (tech/scalability), Keith O'Reilly (money/unit economics), Lana Gold (product-market fit/UX), Brenda Callahan (gut instinct — **always says "I'm out"**), Roman Hart (tech depth/security), Devon James (branding/hustle).
 
 ## Key Constraint
 
-Barbara Corcoran must **always** end with "and for that reason, I'm out" — even if she likes the product. This is an intentional running gag baked into the skill.
+Brenda Callahan must **always** end with "and for that reason, I'm out" — even if she likes the product. This is an intentional running gag baked into the skill.
 
 ## Installation
 

@@ -3,6 +3,7 @@ import { useRef, useCallback, useEffect } from "react";
 export function useAudioEngine() {
   const ctxRef = useRef<AudioContext | null>(null);
   const droneRef = useRef<{ osc: OscillatorNode; gain: GainNode } | null>(null);
+  const themeAudioRef = useRef<HTMLAudioElement | null>(null);
 
   const getCtx = useCallback(() => {
     if (!ctxRef.current) {
@@ -14,50 +15,37 @@ export function useAudioEngine() {
     return ctxRef.current;
   }, []);
 
-  // Theme sting: three ascending sawtooth notes (C4→E4→G4)
+  // Theme song: play the actual mp3 file
   const playThemeSting = useCallback(() => {
-    const ctx = getCtx();
-    const now = ctx.currentTime;
-    const notes = [261.63, 329.63, 392.0]; // C4, E4, G4
-
-    notes.forEach((freq, i) => {
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      const filter = ctx.createBiquadFilter();
-
-      osc.type = "sawtooth";
-      osc.frequency.value = freq;
-
-      filter.type = "lowpass";
-      filter.frequency.value = 2000;
-      filter.Q.value = 2;
-
-      const start = now + i * 0.6;
-      gain.gain.setValueAtTime(0, start);
-      gain.gain.linearRampToValueAtTime(0.15, start + 0.1);
-      gain.gain.exponentialRampToValueAtTime(0.01, start + 0.8);
-
-      osc.connect(filter);
-      filter.connect(gain);
-      gain.connect(ctx.destination);
-
-      osc.start(start);
-      osc.stop(start + 0.9);
+    // Stop any previous playback
+    if (themeAudioRef.current) {
+      themeAudioRef.current.pause();
+      themeAudioRef.current = null;
+    }
+    const audio = new Audio("/theme.mp3");
+    audio.volume = 0.7;
+    themeAudioRef.current = audio;
+    audio.play().catch(() => {
+      // Browser may block autoplay — ignore silently
     });
+  }, []);
 
-    // Sub bass hit on the last note
-    const sub = ctx.createOscillator();
-    const subGain = ctx.createGain();
-    sub.type = "sine";
-    sub.frequency.value = 65.41; // C2
-    subGain.gain.setValueAtTime(0, now + 1.2);
-    subGain.gain.linearRampToValueAtTime(0.2, now + 1.35);
-    subGain.gain.exponentialRampToValueAtTime(0.01, now + 2.8);
-    sub.connect(subGain);
-    subGain.connect(ctx.destination);
-    sub.start(now + 1.2);
-    sub.stop(now + 3.0);
-  }, [getCtx]);
+  // Stop theme song
+  const stopTheme = useCallback(() => {
+    if (themeAudioRef.current) {
+      const audio = themeAudioRef.current;
+      // Fade out over 500ms
+      const fadeInterval = setInterval(() => {
+        if (audio.volume > 0.05) {
+          audio.volume = Math.max(0, audio.volume - 0.05);
+        } else {
+          clearInterval(fadeInterval);
+          audio.pause();
+          themeAudioRef.current = null;
+        }
+      }, 30);
+    }
+  }, []);
 
   // Tension drone: subtle low sine with LFO
   const startDrone = useCallback(() => {
@@ -167,15 +155,17 @@ export function useAudioEngine() {
   useEffect(() => {
     return () => {
       stopDrone();
+      stopTheme();
       if (ctxRef.current) {
         ctxRef.current.close();
         ctxRef.current = null;
       }
     };
-  }, [stopDrone]);
+  }, [stopDrone, stopTheme]);
 
   return {
     playThemeSting,
+    stopTheme,
     startDrone,
     stopDrone,
     playBuzzer,

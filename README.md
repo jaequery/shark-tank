@@ -1,17 +1,17 @@
-# Shark Tank
+# Deal Tank
 
-A Claude Code plugin that evaluates your project as if you're pitching it on Shark Tank. Get brutally honest, entertaining feedback from virtual versions of Mark Cuban, Kevin O'Leary, Lori Greiner, Barbara Corcoran, Robert Herjavec, and Daymond John.
+A Claude Code plugin that evaluates your project as if you're pitching it on Deal Tank. Get brutally honest, entertaining feedback from a panel of virtual investors — **Marc Havens**, **Keith O'Reilly**, **Lana Gold**, **Brenda Callahan**, **Roman Hart**, and **Devon James**.
 
 ## What It Does
 
-When invoked, the skill analyzes your entire project — code, docs, git history, team size, tech stack — and delivers a full Shark Tank episode complete with:
+When invoked, the skill analyzes your entire project — code, docs, git history, team size, tech stack — and delivers a full Deal Tank episode complete with:
 
 - A dramatic narrator intro
 - A founder pitch (written in-character using your git author name)
-- Shark reactions and dialogue with distinct personalities
+- Investor reactions and dialogue with distinct personalities
 - A detailed scorecard across 7 dimensions (scored out of 70)
 - Honest pros, concerns, and hard questions
-- A final verdict from each Shark — deal or no deal
+- A final verdict from each Investor — deal or no deal
 
 ## Installation
 

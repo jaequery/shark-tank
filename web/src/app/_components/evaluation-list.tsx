@@ -25,7 +25,7 @@ export function EvaluationList() {
     return (
       <div className="empty-state">
         <h2>No evaluations yet</h2>
-        <p>Create your first Shark Tank evaluation to get started.</p>
+        <p>Create your first Deal Tank evaluation to get started.</p>
       </div>
     );
   }
@@ -44,7 +44,7 @@ export function EvaluationList() {
                   year: "numeric",
                 })}
                 {ev.deal && (
-                  <span style={{ marginLeft: "0.75rem", color: "var(--green)", fontWeight: 600 }}>
+                  <span style={{ marginLeft: "0.75rem", color: "var(--text-muted)", fontWeight: 600, fontSize: "0.6875rem", letterSpacing: "0.1em" }}>
                     DEAL
                   </span>
                 )}

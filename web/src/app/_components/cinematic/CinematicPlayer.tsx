@@ -29,6 +29,7 @@ interface CinematicPlayerProps {
   scores: Score[];
   overallScore: number;
   deal: string | null;
+  themeAudio: HTMLAudioElement | null;
   onClose: () => void;
 }
 
@@ -39,17 +40,29 @@ export default function CinematicPlayer({
   scores,
   overallScore,
   deal,
+  themeAudio,
   onClose,
 }: CinematicPlayerProps) {
   const audio = useAudioEngine();
   const audioRef = useRef(audio);
   audioRef.current = audio;
+  const themeAudioRef = useRef(themeAudio);
+  themeAudioRef.current = themeAudio;
 
   const handlePhaseChange = useCallback((phase: Phase) => {
-    if (phase === "INTRO") {
-      audioRef.current.playThemeSting();
-    }
     if (phase === "DIALOGUE") {
+      // Fade out theme when founder starts pitching
+      const el = themeAudioRef.current;
+      if (el) {
+        const fade = setInterval(() => {
+          if (el.volume > 0.05) {
+            el.volume = Math.max(0, el.volume - 0.05);
+          } else {
+            clearInterval(fade);
+            el.pause();
+          }
+        }, 30);
+      }
       audioRef.current.startDrone();
     }
     if (phase === "SCORES") {
@@ -58,9 +71,8 @@ export default function CinematicPlayer({
   }, []);
 
   const timer = useCinematicTimer(episode, handlePhaseChange);
-  const { state, start, togglePause, setSpeed, skipToScores, goToVerdict, finish } = timer;
+  const { state, start, next, prev, skipToScores } = timer;
 
-  // Auto-start on mount
   const startedRef = useRef(false);
   useEffect(() => {
     if (!startedRef.current) {
@@ -69,7 +81,6 @@ export default function CinematicPlayer({
     }
   }, [start]);
 
-  // Lock body scroll
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {
@@ -77,20 +88,22 @@ export default function CinematicPlayer({
     };
   }, []);
 
-  // Keyboard controls
   useEffect(() => {
     function handleKey(e: KeyboardEvent) {
       if (e.key === "Escape") onClose();
-      if (e.key === " " || e.key === "k") {
+      if (e.key === " " || e.key === "ArrowRight" || e.key === "Enter") {
         e.preventDefault();
-        togglePause();
+        next();
+      }
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        prev();
       }
     }
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, [onClose, togglePause]);
+  }, [onClose, next, prev]);
 
-  // Play buzzer on "I'm out" lines
   useEffect(() => {
     if (state.phase !== "DIALOGUE" || state.dialogueIndex < 0) return;
     const line = episode[state.dialogueIndex];
@@ -101,16 +114,20 @@ export default function CinematicPlayer({
 
   const actBreak = state.phase === "DIALOGUE" ? timer.getActBreak(state.dialogueIndex) : null;
 
+  const canGoBack =
+    state.phase === "COLD_OPEN" ||
+    state.phase === "SCORES" ||
+    state.phase === "VERDICT" ||
+    (state.phase === "DIALOGUE" && state.dialogueIndex >= 0);
+
+  const canGoForward = state.phase !== "IDLE" && state.phase !== "DONE";
+
   return (
     <div className="cine-overlay">
-      <div className="cine-vignette" />
-
-      {/* Close button */}
       <button className="cine-controls-close" onClick={onClose} title="Close (Esc)">
         &times;
       </button>
 
-      {/* Phases */}
       {state.phase === "INTRO" && <CinematicIntro projectName={projectName} />}
 
       {state.phase === "COLD_OPEN" && (
@@ -131,7 +148,6 @@ export default function CinematicPlayer({
         <CinematicScoreReveal
           scores={scores}
           overallScore={overallScore}
-          onComplete={goToVerdict}
           playScoreTick={audio.playScoreTick}
         />
       )}
@@ -139,21 +155,19 @@ export default function CinematicPlayer({
       {state.phase === "VERDICT" && (
         <CinematicVerdict
           deal={deal}
-          onComplete={finish}
           playDealFanfare={audio.playDealFanfare}
         />
       )}
 
       {state.phase === "DONE" && (
         <div className="cine-verdict">
-          <div className="cine-verdict-deal cine-fade-enter" style={{ animationDelay: "0s" }}>
-            <div style={{ color: "rgba(255,255,255,0.4)", fontSize: "1rem", marginBottom: "1.5rem" }}>
-              End of Episode
+          <div className="cine-verdict-deal" style={{ opacity: 1 }}>
+            <div style={{ color: "rgba(255,255,255,0.3)", fontSize: "0.875rem", letterSpacing: "0.1em", marginBottom: "1.5rem" }}>
+              END OF EPISODE
             </div>
             <button
               className="btn-cinematic"
               onClick={onClose}
-              style={{ fontSize: "1rem", padding: "0.8rem 2rem" }}
             >
               Back to Evaluation
             </button>
@@ -161,26 +175,32 @@ export default function CinematicPlayer({
         </div>
       )}
 
-      {/* Playback controls */}
       {state.phase !== "IDLE" && state.phase !== "DONE" && (
-        <div className="cine-controls">
-          <button onClick={togglePause}>
-            {state.isPaused ? "Play" : "Pause"}
-          </button>
-
-          {[1, 1.5, 2].map((s) => (
-            <button
-              key={s}
-              className={state.speed === s ? "cine-speed-active" : ""}
-              onClick={() => setSpeed(s)}
-            >
-              {s}x
+        <>
+          {canGoBack && (
+            <button className="cine-nav cine-nav-prev" onClick={prev} title="Back (Left Arrow)">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
             </button>
-          ))}
-
-          {state.phase === "DIALOGUE" && (
-            <button onClick={skipToScores}>Skip to Scores</button>
           )}
+
+          <button className="cine-nav cine-nav-next" onClick={next} title="Next (Right Arrow / Space)">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        </>
+      )}
+
+      {state.phase === "DIALOGUE" && (
+        <div className="cine-controls">
+          {timer.dialogueProgress && (
+            <span className="cine-progress">
+              {timer.dialogueProgress.current} / {timer.dialogueProgress.total}
+            </span>
+          )}
+          <button onClick={skipToScores}>Skip to Scores</button>
         </div>
       )}
     </div>

@@ -1,11 +1,11 @@
 {
   "name": "shark-tank",
-  "description": "Rate any project as if you're pitching it on Shark Tank. Get brutally honest, entertaining feedback from a panel of virtual Shark Tank investors.",
+  "description": "Rate any project as if you're pitching it on Deal Tank. Get brutally honest, entertaining feedback from a panel of virtual investors.",
   "version": "1.0.0",
   "author": {
     "name": "Jae Lee"
   },
   "repository": "https://github.com/jaelee/shark-tank",
   "license": "MIT",
-  "keywords": ["code-review", "feedback", "evaluation", "entertainment", "shark-tank"]
+  "keywords": ["code-review", "feedback", "evaluation", "entertainment", "deal-tank"]
 }

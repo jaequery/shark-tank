@@ -27,7 +27,7 @@ export function EvaluationForm() {
     <form onSubmit={handleSubmit} className="card">
       <h2>Enter the Tank</h2>
       <p style={{ color: "var(--text-muted)", marginBottom: "1rem", fontSize: "0.95rem" }}>
-        Pitch your company in a few sentences. The Sharks will take it from there.
+        Pitch your company in a few sentences. The Investors will take it from there.
       </p>
 
       <div className="form-group">
@@ -43,21 +43,21 @@ export function EvaluationForm() {
 
       <button
         type="submit"
-        className="btn btn-primary"
+        className="btn-cta"
         disabled={generateMutation.isPending || !intro.trim()}
       >
         {generateMutation.isPending ? (
           <>
             <span className="spinner" />
-            The Sharks are deliberating...
+            The Investors are deliberating...
           </>
         ) : (
-          "Face the Sharks"
+          "Face the Investors"
         )}
       </button>
 
       {generateMutation.error && (
-        <p style={{ color: "var(--red)", marginTop: "0.75rem", fontSize: "0.9rem" }}>
+        <p style={{ color: "var(--text-muted)", marginTop: "0.75rem", fontSize: "0.8125rem" }}>
           {generateMutation.error.message}
         </p>
       )}

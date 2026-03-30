@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useState, lazy, Suspense } from "react";
+import { use, useState, useRef, lazy, Suspense } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { trpc } from "@/lib/trpc";
@@ -15,29 +15,22 @@ interface EpisodeLine {
   direction?: string;
 }
 
-const SHARK_STYLES: Record<string, { className: string; label: string }> = {
-  "Mark Cuban": { className: "shark-mark", label: "MARK" },
-  "Kevin O'Leary": { className: "shark-kevin", label: "KEVIN" },
-  "Lori Greiner": { className: "shark-lori", label: "LORI" },
-  "Barbara Corcoran": { className: "shark-barbara", label: "BARBARA" },
-  "Robert Herjavec": { className: "shark-robert", label: "ROBERT" },
-  "Daymond John": { className: "shark-daymond", label: "DAYMOND" },
+const INVESTOR_LABELS: Record<string, string> = {
+  "Marc Havens": "MARC",
+  "Keith O'Reilly": "KEITH",
+  "Lana Gold": "LANA",
+  "Brenda Callahan": "BRENDA",
+  "Roman Hart": "ROMAN",
+  "Devon James": "DEVON",
 };
 
-function scoreColor(score: number): string {
-  if (score >= 7) return "var(--green)";
-  if (score >= 4) return "var(--accent)";
-  return "var(--red)";
-}
-
 function ScoreBadge({ score }: { score: number }) {
-  const pct = score / 10;
-  const cls = pct >= 0.7 ? "score-high" : pct >= 0.4 ? "score-mid" : "score-low";
+  const cls = score >= 7 ? "score-high" : score >= 4 ? "score-mid" : "score-low";
   return <span className={`score-badge ${cls}`}>{score}</span>;
 }
 
 function EpisodeLine({ line }: { line: EpisodeLine }) {
-  const shark = SHARK_STYLES[line.speaker];
+  const label = INVESTOR_LABELS[line.speaker];
 
   if (line.speaker === "Narrator") {
     return (
@@ -52,9 +45,7 @@ function EpisodeLine({ line }: { line: EpisodeLine }) {
     return (
       <div className="episode-line episode-founder">
         <div className="episode-speaker">
-          <span className="shark-tag" style={{ background: "rgba(255,255,255,0.08)", color: "var(--text)" }}>
-            FOUNDER
-          </span>
+          <span className="shark-tag">YOU</span>
           {line.direction && <span className="stage-direction">[{line.direction}]</span>}
         </div>
         <div className="episode-text">{line.text}</div>
@@ -65,8 +56,8 @@ function EpisodeLine({ line }: { line: EpisodeLine }) {
   return (
     <div className="episode-line">
       <div className="episode-speaker">
-        <span className={`shark-tag ${shark?.className ?? ""}`}>
-          {shark?.label ?? line.speaker.toUpperCase()}
+        <span className="shark-tag">
+          {label ?? line.speaker.toUpperCase()}
         </span>
         {line.direction && <span className="stage-direction">[{line.direction}]</span>}
       </div>
@@ -91,6 +82,7 @@ export default function EvaluationPage({
     },
   });
   const [showCinematic, setShowCinematic] = useState(false);
+  const themeAudioRef = useRef<HTMLAudioElement | null>(null);
 
   if (isLoading) {
     return (
@@ -122,7 +114,6 @@ export default function EvaluationPage({
 
   return (
     <div className="container">
-      {/* Cinematic overlay */}
       {showCinematic && hasEpisode && (
         <Suspense fallback={null}>
           <CinematicPlayer
@@ -132,13 +123,20 @@ export default function EvaluationPage({
             scores={ev.scores}
             overallScore={ev.overallScore}
             deal={ev.deal}
-            onClose={() => setShowCinematic(false)}
+            themeAudio={themeAudioRef.current}
+            onClose={() => {
+              if (themeAudioRef.current) {
+                themeAudioRef.current.pause();
+                themeAudioRef.current = null;
+              }
+              setShowCinematic(false);
+            }}
           />
         </Suspense>
       )}
 
       <div style={{ marginBottom: "1.5rem" }}>
-        <Link href="/" style={{ color: "var(--text-muted)", fontSize: "0.9rem" }}>
+        <Link href="/" style={{ color: "var(--text-muted)", fontSize: "0.8125rem" }}>
           &larr; Back
         </Link>
       </div>
@@ -148,23 +146,28 @@ export default function EvaluationPage({
         <div className="episode-title-inner">
           <h1>{ev.projectName}</h1>
           <div className="episode-overall">
-            <span className="episode-score-num" style={{ color: scoreColor(ev.overallScore / 7) }}>
+            <span className="episode-score-num">
               {ev.overallScore}
             </span>
             <span className="episode-score-total">/70</span>
           </div>
         </div>
-        <div style={{ marginTop: "1rem", display: "flex", gap: "0.75rem", justifyContent: "center", alignItems: "center" }}>
-          {ev.deal && (
-            <div className="episode-deal-banner">DEAL</div>
-          )}
-          {hasEpisode && (
-            <button className="btn-cinematic" onClick={() => setShowCinematic(true)}>
-              <span className="btn-cinematic-icon">&#9654;</span>
+        {ev.deal && (
+          <div className="episode-deal-banner">DEAL</div>
+        )}
+        {hasEpisode && (
+          <div style={{ marginTop: "2rem", display: "flex", justifyContent: "center" }}>
+            <button className="btn-cinematic" onClick={() => {
+              const audio = new Audio("/theme.mp3");
+              audio.volume = 0.7;
+              audio.play().catch(() => {});
+              themeAudioRef.current = audio;
+              setShowCinematic(true);
+            }}>
               Watch Episode
             </button>
-          )}
-        </div>
+          </div>
+        )}
       </div>
 
       {/* Narrator cold open */}
@@ -180,7 +183,6 @@ export default function EvaluationPage({
           ))}
         </div>
       ) : (
-        /* Legacy fallback for old evaluations */
         <div className="card">
           <p style={{ color: "var(--text-muted)" }}>
             This evaluation was created before the episode format was added.
@@ -196,10 +198,10 @@ export default function EvaluationPage({
         </div>
       )}
 
-      {/* Scorecard — post-show analysis */}
+      {/* Scorecard */}
       <div className="episode-postgame">
         <div className="section-title">Post-Show Scorecard</div>
-        <div className="card" style={{ padding: 0, overflow: "hidden" }}>
+        <div style={{ overflow: "hidden" }}>
           <table className="scorecard">
             <thead>
               <tr>
@@ -211,7 +213,7 @@ export default function EvaluationPage({
             <tbody>
               {ev.scores.map((s) => (
                 <tr key={s.id}>
-                  <td style={{ fontWeight: 600 }}>{s.category}</td>
+                  <td style={{ fontWeight: 500 }}>{s.category}</td>
                   <td><ScoreBadge score={s.score} /></td>
                   <td style={{ color: "var(--text-muted)" }}>{s.oneLiner}</td>
                 </tr>
@@ -222,7 +224,7 @@ export default function EvaluationPage({
       </div>
 
       {/* Delete */}
-      <div style={{ marginTop: "2rem", paddingTop: "1.5rem", borderTop: "1px solid var(--border)" }}>
+      <div style={{ marginTop: "3rem" }}>
         <button
           className="btn btn-danger"
           onClick={() => {

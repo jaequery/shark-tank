@@ -7,8 +7,8 @@ export default function HomePage() {
   return (
     <div className="container">
       <header className="header">
-        <h1>SHARK TANK</h1>
-        <p>Pitch your company. Face the Sharks.</p>
+        <h1>DEAL TANK</h1>
+        <p>Pitch your company. Face the Investors.</p>
       </header>
 
       <div style={{ marginBottom: "2rem" }}>
