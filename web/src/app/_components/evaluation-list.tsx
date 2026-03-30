@@ -25,7 +25,7 @@ export function EvaluationList() {
     return (
       <div className="empty-state">
         <h2>No evaluations yet</h2>
-        <p>Create your first Deal Tank evaluation to get started.</p>
+        <p>The tank is empty. No founders have entered yet. Brenda is relieved.</p>
       </div>
     );
   }

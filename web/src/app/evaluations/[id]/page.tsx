@@ -225,18 +225,23 @@ export default function EvaluationPage({
 
       {/* Delete */}
       <div style={{ marginTop: "3rem" }}>
-        <button
-          className="btn btn-danger"
-          onClick={() => {
-            if (confirm("Delete this evaluation?")) {
-              deleteMutation.mutate({ id: ev.id });
-            }
-          }}
-          disabled={deleteMutation.isPending}
-        >
-          {deleteMutation.isPending ? "Deleting..." : "Delete Evaluation"}
-        </button>
-      </div>
+          <button
+            className="btn btn-danger"
+            onClick={() => {
+              if (confirm("Delete this evaluation?")) {
+                deleteMutation.mutate({ id: ev.id });
+              }
+            }}
+            disabled={deleteMutation.isPending}
+          >
+            {deleteMutation.isPending ? "Deleting..." : "Delete Evaluation"}
+          </button>
+          {deleteMutation.error && (
+            <p style={{ color: "var(--text-muted)", marginTop: "0.5rem", fontSize: "0.8125rem" }}>
+              {deleteMutation.error.message}
+            </p>
+          )}
+        </div>
     </div>
   );
 }
