@@ -1,0 +1,568 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0a0a0f;
+  --bg-card: #12121a;
+  --bg-card-hover: #1a1a2e;
+  --border: #2a2a3e;
+  --text: #e4e4ef;
+  --text-muted: #8888a0;
+  --accent: #f59e0b;
+  --accent-dim: #b45309;
+  --green: #22c55e;
+  --red: #ef4444;
+  --blue: #3b82f6;
+  --purple: #a855f7;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Layout */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 3rem 0 2rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent), #fbbf24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header p {
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* Cards */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: border-color 0.2s;
+}
+
+.card:hover {
+  border-color: var(--accent-dim);
+}
+
+.card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+/* Form */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #000;
+}
+
+.btn-primary:hover {
+  background: #fbbf24;
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-danger {
+  background: transparent;
+  color: var(--red);
+  border: 1px solid var(--red);
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+}
+
+.btn-danger:hover {
+  background: var(--red);
+  color: #fff;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--text);
+  color: var(--text);
+}
+
+/* Score badge */
+.score-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.score-low {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--red);
+}
+
+.score-mid {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--accent);
+}
+
+.score-high {
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--green);
+}
+
+/* Scorecard table */
+.scorecard {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.scorecard th,
+.scorecard td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.scorecard th {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.scorecard td:nth-child(2) {
+  text-align: center;
+}
+
+/* Shark avatars */
+.shark-tag {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.shark-mark { background: rgba(59, 130, 246, 0.15); color: var(--blue); }
+.shark-kevin { background: rgba(168, 85, 247, 0.15); color: var(--purple); }
+.shark-lori { background: rgba(236, 72, 153, 0.15); color: #ec4899; }
+.shark-barbara { background: rgba(239, 68, 68, 0.15); color: var(--red); }
+.shark-robert { background: rgba(34, 197, 94, 0.15); color: var(--green); }
+.shark-daymond { background: rgba(245, 158, 11, 0.15); color: var(--accent); }
+
+/* Section */
+.section {
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Verdict */
+.verdict-in {
+  color: var(--green);
+  font-weight: 700;
+}
+
+.verdict-out {
+  color: var(--red);
+  font-weight: 700;
+}
+
+/* Blockquote */
+.quote {
+  border-left: 3px solid var(--accent);
+  padding: 0.75rem 1rem;
+  margin: 0.75rem 0;
+  background: rgba(245, 158, 11, 0.05);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* Evaluation list */
+.eval-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 0.75rem;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.eval-list-item:hover {
+  border-color: var(--accent-dim);
+  background: var(--bg-card-hover);
+}
+
+.eval-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.eval-name {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.eval-date {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* Overall score display */
+.overall-score {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.overall-score .number {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.overall-score .total {
+  font-size: 1.5rem;
+  color: var(--text-muted);
+}
+
+.overall-score .label {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+/* Bullet list */
+.bullet-list {
+  list-style: none;
+  padding: 0;
+}
+
+.bullet-list li {
+  padding: 0.4rem 0;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.bullet-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.85rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* Spinner */
+.spinner {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-muted);
+}
+
+.empty-state h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+/* Dialog content */
+.dialog-line {
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+}
+
+.dialog-line strong {
+  color: var(--text);
+}
+
+/* ── Episode view ── */
+
+.episode-title-card {
+  text-align: center;
+  padding: 2.5rem 1.5rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--accent);
+  position: relative;
+}
+
+.episode-title-inner {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.episode-title-card h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent), #fbbf24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.episode-overall {
+  white-space: nowrap;
+}
+
+.episode-score-num {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.episode-score-total {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+}
+
+.episode-deal-banner {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.3rem 1.5rem;
+  background: var(--green);
+  color: #000;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  border-radius: 4px;
+}
+
+.episode-cold-open {
+  text-align: center;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  border-left: none;
+}
+
+/* Script container */
+.episode-script {
+  margin-bottom: 2.5rem;
+}
+
+/* Individual episode lines */
+.episode-line {
+  padding: 0.9rem 1rem 0.9rem 1.25rem;
+  margin-bottom: 2px;
+  border-radius: 8px;
+  transition: background 0.15s;
+}
+
+.episode-line:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.episode-founder {
+  border-left: 3px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.episode-speaker {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.episode-text {
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.stage-direction {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+/* Narrator lines */
+.episode-narrator {
+  text-align: center;
+  padding: 1.25rem 2rem;
+  margin: 1.5rem 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.episode-narrator .stage-direction {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+/* Deal card */
+.episode-deal-card {
+  background: rgba(34, 197, 94, 0.06);
+  border: 1px solid var(--green);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.episode-deal-card h3 {
+  color: var(--green);
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+/* Post-game scorecard */
+.episode-postgame {
+  margin-top: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .container { padding: 1rem; }
+  .header h1 { font-size: 1.8rem; }
+  .overall-score .number { font-size: 2.5rem; }
+  .episode-title-card h1 { font-size: 1.6rem; }
+  .episode-score-num { font-size: 2rem; }
+  .episode-cold-open { padding: 1rem; font-size: 1rem; }
+  .episode-line { padding: 0.7rem 0.75rem; }
+}
