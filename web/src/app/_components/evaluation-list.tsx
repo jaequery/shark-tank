@@ -43,15 +43,10 @@ export function EvaluationList() {
                   day: "numeric",
                   year: "numeric",
                 })}
-                {ev.deal && (
-                  <span style={{ marginLeft: "0.75rem", color: "var(--text-muted)", fontWeight: 600, fontSize: "0.6875rem", letterSpacing: "0.1em" }}>
-                    DEAL
-                  </span>
-                )}
               </div>
             </div>
             <div className="eval-meta">
-              <div className={`score-badge ${scoreClass(ev.overallScore, 70)}`}>
+              <div className={`score-badge ${scoreClass(ev.overallScore, 10)}`}>
                 {ev.overallScore}
               </div>
             </div>

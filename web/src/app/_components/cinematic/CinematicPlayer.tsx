@@ -51,21 +51,21 @@ export default function CinematicPlayer({
 
   const handlePhaseChange = useCallback((phase: Phase) => {
     if (phase === "DIALOGUE") {
-      // Fade out theme when founder starts pitching
+      audioRef.current.startDrone();
+    }
+    if (phase === "SCORES") {
+      // Fade out theme music gradually over ~2s
       const el = themeAudioRef.current;
       if (el) {
         const fade = setInterval(() => {
-          if (el.volume > 0.05) {
-            el.volume = Math.max(0, el.volume - 0.05);
+          if (el.volume > 0.02) {
+            el.volume = Math.max(0, el.volume - 0.02);
           } else {
             clearInterval(fade);
             el.pause();
           }
-        }, 30);
+        }, 50);
       }
-      audioRef.current.startDrone();
-    }
-    if (phase === "SCORES") {
       audioRef.current.stopDrone();
     }
   }, []);

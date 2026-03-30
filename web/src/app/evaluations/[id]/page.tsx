@@ -149,7 +149,7 @@ export default function EvaluationPage({
             <span className="episode-score-num">
               {ev.overallScore}
             </span>
-            <span className="episode-score-total">/70</span>
+            <span className="episode-score-total">/10</span>
           </div>
         </div>
         {ev.deal && (

@@ -391,6 +391,42 @@
 }
 
 
+/* ── Investor Photos ── */
+.cine-investor-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: grayscale(0.6) brightness(0.85);
+  box-shadow: 0 0 20px rgba(201, 165, 90, 0.25);
+  margin-bottom: 1.25rem;
+}
+
+/* ── Panel Row (Intro) ── */
+.cine-panel-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.cine-panel-photo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: grayscale(1) brightness(0.5);
+  opacity: 0;
+  animation: fade-in 1s ease-out forwards;
+}
+
+.cine-panel-photo:nth-child(1) { animation-delay: 2.5s; }
+.cine-panel-photo:nth-child(2) { animation-delay: 2.65s; }
+.cine-panel-photo:nth-child(3) { animation-delay: 2.8s; }
+.cine-panel-photo:nth-child(4) { animation-delay: 2.95s; }
+.cine-panel-photo:nth-child(5) { animation-delay: 3.1s; }
+.cine-panel-photo:nth-child(6) { animation-delay: 3.25s; }
 
 /* ── Responsive ── */
 @media (max-width: 640px) {
@@ -452,6 +488,22 @@
   }
 
   .cine-nav svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .cine-investor-photo {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 1rem;
+  }
+
+  .cine-panel-row {
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .cine-panel-photo {
     width: 36px;
     height: 36px;
   }

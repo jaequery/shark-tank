@@ -85,7 +85,7 @@ export default function CinematicScoreReveal({
       {showTotal && (
         <div className="cine-score-total">
           <span className="cine-score-total-num">{countUp}</span>
-          <span className="cine-score-total-label">/70</span>
+          <span className="cine-score-total-label">/10</span>
         </div>
       )}
     </div>

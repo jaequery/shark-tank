@@ -25,7 +25,7 @@ export const evaluationRouter = router({
     .mutation(async ({ input }) => {
       const result = await generateEvaluation(input.intro);
 
-      const overallScore = result.scores.reduce((sum, s) => sum + s.score, 0);
+      const overallScore = Math.round(result.scores.reduce((sum, s) => sum + s.score, 0) / result.scores.length);
 
       // Serialize the episode array into the existing text fields for storage.
       // We store the full episode JSON in sharkDialog and leave the legacy

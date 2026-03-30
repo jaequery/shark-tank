@@ -13,6 +13,15 @@ const INVESTOR_LABELS: Record<string, string> = {
   "Devon James": "DEVON JAMES",
 };
 
+const INVESTOR_PHOTOS: Record<string, string> = {
+  "Marc Havens": "/sharks/mark-cuban.jpg",
+  "Keith O'Reilly": "/sharks/kevin-oleary.jpg",
+  "Lana Gold": "/sharks/lori-greiner.jpg",
+  "Brenda Callahan": "/sharks/barbara-corcoran.jpg",
+  "Roman Hart": "/sharks/robert-herjavec.jpg",
+  "Devon James": "/sharks/daymond-john.jpg",
+};
+
 interface CinematicDialogueProps {
   episode: EpisodeLine[];
   currentIndex: number;
@@ -38,6 +47,7 @@ export default function CinematicDialogue({
   const isNarrator = currentLine.speaker === "Narrator";
   const isFounder = currentLine.speaker === "Founder";
   const label = INVESTOR_LABELS[currentLine.speaker];
+  const photo = INVESTOR_PHOTOS[currentLine.speaker];
 
   return (
     <div className="cine-dialogue">
@@ -49,6 +59,14 @@ export default function CinematicDialogue({
       >
         {currentLine.direction && (
           <div className="cine-dialogue-direction">[{currentLine.direction}]</div>
+        )}
+
+        {photo && (
+          <img
+            src={photo}
+            alt={currentLine.speaker}
+            className="cine-investor-photo"
+          />
         )}
 
         {label && <span className="cine-speaker-tag">{label}</span>}
