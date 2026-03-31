@@ -158,7 +158,7 @@ export default function EvaluationPage({
         {hasEpisode && (
           <div style={{ marginTop: "2rem", display: "flex", justifyContent: "center" }}>
             <button className="btn-cinematic" onClick={() => {
-              const audio = new Audio("/theme.mp3");
+              const audio = new Audio("/deal.mp3");
               audio.volume = 0.7;
               audio.play().catch(() => {});
               themeAudioRef.current = audio;

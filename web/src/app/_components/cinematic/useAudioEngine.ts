@@ -22,7 +22,7 @@ export function useAudioEngine() {
       themeAudioRef.current.pause();
       themeAudioRef.current = null;
     }
-    const audio = new Audio("/theme.mp3");
+    const audio = new Audio("/deal.mp3");
     audio.volume = 0.7;
     themeAudioRef.current = audio;
     audio.play().catch(() => {
