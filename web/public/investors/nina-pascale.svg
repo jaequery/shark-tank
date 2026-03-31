@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="circle"><circle cx="100" cy="100" r="100"/></clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6B2D8B"/>
+      <stop offset="100%" stop-color="#C77DBA"/>
+    </linearGradient>
+  </defs>
+  <g clip-path="url(#circle)">
+    <rect width="200" height="200" fill="url(#bg)"/>
+    <!-- Body/blazer -->
+    <ellipse cx="100" cy="222" rx="72" ry="48" fill="#2d2d44"/>
+    <!-- V-neck -->
+    <polygon points="80,188 100,215 120,188" fill="#C77DBA" opacity="0.5"/>
+    <!-- Neck -->
+    <rect x="90" y="148" width="20" height="26" rx="5" fill="#e8b89a"/>
+    <!-- Necklace -->
+    <circle cx="100" cy="180" r="4" fill="#FFD700"/>
+    <path d="M87 172 Q100 185 113 172" fill="none" stroke="#FFD700" stroke-width="1.5"/>
+    <!-- Head -->
+    <ellipse cx="100" cy="110" rx="40" ry="48" fill="#e8b89a"/>
+    <!-- Hair - sleek dark bob -->
+    <path d="M55 110 Q55 55 100 48 Q145 55 145 110 L145 95 Q145 50 100 40 Q55 50 55 95 Z" fill="#2a1a0e"/>
+    <!-- Hair sides flowing down -->
+    <path d="M55 105 Q50 130 55 155 Q58 130 60 110 Z" fill="#2a1a0e"/>
+    <path d="M145 105 Q150 130 145 155 Q142 130 140 110 Z" fill="#2a1a0e"/>
+    <!-- Bangs -->
+    <path d="M65 85 Q75 70 90 68 Q80 78 72 90 Z" fill="#2a1a0e"/>
+    <!-- Eyebrows - elegant arch -->
+    <path d="M72 95 Q80 90 90 93" fill="none" stroke="#2a1a0e" stroke-width="2" stroke-linecap="round"/>
+    <path d="M110 93 Q120 90 128 95" fill="none" stroke="#2a1a0e" stroke-width="2" stroke-linecap="round"/>
+    <!-- Eyes - almond shaped, sharp -->
+    <path d="M72 104 Q81 98 90 104 Q81 109 72 104 Z" fill="white"/>
+    <path d="M110 104 Q119 98 128 104 Q119 109 110 104 Z" fill="white"/>
+    <circle cx="81" cy="104" r="3.5" fill="#4a3520"/>
+    <circle cx="119" cy="104" r="3.5" fill="#4a3520"/>
+    <circle cx="82" cy="103" r="1.2" fill="white"/>
+    <circle cx="120" cy="103" r="1.2" fill="white"/>
+    <!-- Eyelashes -->
+    <path d="M72 103 L69 100" stroke="#2a1a0e" stroke-width="1" stroke-linecap="round"/>
+    <path d="M128 103 L131 100" stroke="#2a1a0e" stroke-width="1" stroke-linecap="round"/>
+    <!-- Nose -->
+    <path d="M100 108 L97 120 Q100 123 103 120 Z" fill="#d4a080" opacity="0.4"/>
+    <!-- Lips - defined -->
+    <path d="M88 131 Q94 128 100 131 Q106 128 112 131" fill="#c46a6a" opacity="0.8"/>
+    <path d="M88 131 Q100 138 112 131" fill="#d47a7a" opacity="0.6"/>
+    <!-- Earrings -->
+    <circle cx="57" cy="118" r="3" fill="#FFD700"/>
+    <circle cx="143" cy="118" r="3" fill="#FFD700"/>
+    <!-- Ears -->
+    <ellipse cx="60" cy="110" rx="5" ry="9" fill="#daa87a"/>
+    <ellipse cx="140" cy="110" rx="5" ry="9" fill="#daa87a"/>
+  </g>
+</svg>

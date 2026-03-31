@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="circle"><circle cx="100" cy="100" r="100"/></clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#B44E65"/>
+      <stop offset="100%" stop-color="#E8A0B0"/>
+    </linearGradient>
+  </defs>
+  <g clip-path="url(#circle)">
+    <rect width="200" height="200" fill="url(#bg)"/>
+    <!-- Body -->
+    <ellipse cx="100" cy="222" rx="72" ry="48" fill="#c4445a"/>
+    <!-- Scoop neck -->
+    <path d="M75 190 Q100 205 125 190" fill="#E8A0B0" opacity="0.4"/>
+    <!-- Neck -->
+    <rect x="89" y="148" width="22" height="26" rx="5" fill="#f5d0a9"/>
+    <!-- Head -->
+    <ellipse cx="100" cy="110" rx="40" ry="48" fill="#f5d0a9"/>
+    <!-- Hair - voluminous wavy blonde -->
+    <path d="M50 115 Q45 60 100 45 Q155 60 150 115" fill="#D4A843"/>
+    <path d="M50 115 Q48 55 100 38 Q152 55 150 115 L148 105 Q148 55 100 42 Q52 55 52 105 Z" fill="#E8C86A"/>
+    <!-- Volume waves -->
+    <path d="M50 110 Q45 130 48 150 Q52 135 55 115 Z" fill="#D4A843"/>
+    <path d="M150 110 Q155 130 152 150 Q148 135 145 115 Z" fill="#D4A843"/>
+    <path d="M48 125 Q44 140 50 155" fill="none" stroke="#C49530" stroke-width="2" opacity="0.4"/>
+    <path d="M152 125 Q156 140 150 155" fill="none" stroke="#C49530" stroke-width="2" opacity="0.4"/>
+    <!-- Eyebrows - expressive, arched -->
+    <path d="M72 94 Q80 88 90 92" fill="none" stroke="#8B6914" stroke-width="2" stroke-linecap="round"/>
+    <path d="M110 92 Q120 88 128 94" fill="none" stroke="#8B6914" stroke-width="2" stroke-linecap="round"/>
+    <!-- Eyes - warm, round -->
+    <ellipse cx="81" cy="104" rx="7" ry="5" fill="white"/>
+    <ellipse cx="119" cy="104" rx="7" ry="5" fill="white"/>
+    <circle cx="81" cy="105" r="3.5" fill="#4682B4"/>
+    <circle cx="119" cy="105" r="3.5" fill="#4682B4"/>
+    <circle cx="82" cy="104" r="1.2" fill="white"/>
+    <circle cx="120" cy="104" r="1.2" fill="white"/>
+    <!-- Crow's feet - character lines -->
+    <path d="M68 104 L65 101" stroke="#dbb898" stroke-width="1" opacity="0.5"/>
+    <path d="M68 106 L65 108" stroke="#dbb898" stroke-width="1" opacity="0.5"/>
+    <path d="M132 104 L135 101" stroke="#dbb898" stroke-width="1" opacity="0.5"/>
+    <path d="M132 106 L135 108" stroke="#dbb898" stroke-width="1" opacity="0.5"/>
+    <!-- Nose -->
+    <path d="M100 108 L97 121 Q100 124 103 121 Z" fill="#e8b890" opacity="0.4"/>
+    <!-- Mouth - warm big smile -->
+    <path d="M85 130 Q100 142 115 130" fill="#d47a7a" opacity="0.7"/>
+    <path d="M85 130 Q100 134 115 130" fill="none" stroke="#c46a6a" stroke-width="2" stroke-linecap="round"/>
+    <!-- Teeth hint -->
+    <path d="M90 132 Q100 136 110 132" fill="white" opacity="0.5"/>
+    <!-- Earrings - dangling -->
+    <circle cx="57" cy="115" r="2" fill="#FFD700"/>
+    <circle cx="57" cy="122" r="3" fill="#FFD700"/>
+    <circle cx="143" cy="115" r="2" fill="#FFD700"/>
+    <circle cx="143" cy="122" r="3" fill="#FFD700"/>
+    <!-- Ears -->
+    <ellipse cx="60" cy="110" rx="5" ry="8" fill="#ecc198"/>
+    <ellipse cx="140" cy="110" rx="5" ry="8" fill="#ecc198"/>
+  </g>
+</svg>

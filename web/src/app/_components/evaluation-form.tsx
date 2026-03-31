@@ -25,7 +25,7 @@ export function EvaluationForm() {
 
   return (
     <form onSubmit={handleSubmit} className="card">
-      <h2>Enter the Tank</h2>
+      <h2>Enter the Room</h2>
       <p style={{ color: "var(--text-muted)", marginBottom: "1rem", fontSize: "0.95rem" }}>
         Pitch your company in a few sentences. The Investors will take it from there.
       </p>

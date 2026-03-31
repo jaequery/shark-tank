@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="circle"><circle cx="100" cy="100" r="100"/></clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a6b4a"/>
+      <stop offset="100%" stop-color="#4ecdc4"/>
+    </linearGradient>
+  </defs>
+  <g clip-path="url(#circle)">
+    <rect width="200" height="200" fill="url(#bg)"/>
+    <!-- Suit jacket -->
+    <ellipse cx="100" cy="225" rx="78" ry="52" fill="#2d2d44"/>
+    <!-- Shirt collar -->
+    <polygon points="82,188 100,208 118,188" fill="white"/>
+    <!-- Tie -->
+    <polygon points="97,195 100,210 103,195 100,190" fill="#1a6b4a"/>
+    <!-- Neck -->
+    <rect x="88" y="150" width="24" height="26" rx="5" fill="#f0c8a8"/>
+    <!-- Head -->
+    <ellipse cx="100" cy="112" rx="42" ry="50" fill="#f0c8a8"/>
+    <!-- Hair - neat, medium brown -->
+    <path d="M58 108 Q58 58 100 50 Q142 58 142 108 L142 95 Q140 55 100 45 Q60 55 58 95 Z" fill="#5c3a1e"/>
+    <!-- Side part -->
+    <path d="M72 60 Q85 52 100 50" fill="none" stroke="#4a2e15" stroke-width="2"/>
+    <!-- Eyebrows - kind, slightly raised -->
+    <path d="M70 97 Q80 93 90 96" fill="none" stroke="#5c3a1e" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M110 96 Q120 93 130 97" fill="none" stroke="#5c3a1e" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Eyes - warm, kind -->
+    <ellipse cx="80" cy="106" rx="7" ry="5" fill="white"/>
+    <ellipse cx="120" cy="106" rx="7" ry="5" fill="white"/>
+    <circle cx="80" cy="107" r="3.5" fill="#5b7fa5"/>
+    <circle cx="120" cy="107" r="3.5" fill="#5b7fa5"/>
+    <circle cx="81" cy="106" r="1.2" fill="white"/>
+    <circle cx="121" cy="106" r="1.2" fill="white"/>
+    <!-- Smile lines -->
+    <path d="M67 108 Q65 115 68 120" fill="none" stroke="#daa880" stroke-width="1" opacity="0.4"/>
+    <path d="M133 108 Q135 115 132 120" fill="none" stroke="#daa880" stroke-width="1" opacity="0.4"/>
+    <!-- Nose -->
+    <path d="M100 110 L97 123 Q100 126 103 123 Z" fill="#daa880" opacity="0.45"/>
+    <!-- Mouth - warm genuine smile -->
+    <path d="M86 133 Q100 142 114 133" fill="none" stroke="#c4846a" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Dimples -->
+    <circle cx="84" cy="134" r="1.5" fill="#daa880" opacity="0.3"/>
+    <circle cx="116" cy="134" r="1.5" fill="#daa880" opacity="0.3"/>
+    <!-- Ears -->
+    <ellipse cx="58" cy="110" rx="6" ry="10" fill="#e0b898"/>
+    <ellipse cx="142" cy="110" rx="6" ry="10" fill="#e0b898"/>
+    <!-- Slight stubble suggestion -->
+    <rect x="82" y="140" width="36" height="18" rx="10" fill="#5c3a1e" opacity="0.04"/>
+  </g>
+</svg>

@@ -1,9 +1,9 @@
 ---
-name: shark-tank
+name: deal-tank
 description: >
   Rate the current project as if you're a panel of Deal Tank investors. Evaluate
   as an investor, founder, and product expert — then deliver a verdict on whether
-  you'd invest. Use when user says "/shark-tank", "rate this project", "shark tank",
+  you'd invest. Use when user says "/deal-tank", "rate this project", "deal tank",
   or "would you invest".
 ---
 
@@ -44,7 +44,7 @@ You are hosting a full episode of Deal Tank. This is a SHOW — dramatic, entert
 
 ### THE PITCH
 
-*[The founder walks into the Tank]*
+*[The founder walks into the Room]*
 
 > *"Hello Investors! My name is [use the git author name or a fun placeholder], and I'm the founder of **[Project Name]**.*
 >
@@ -57,21 +57,21 @@ You are hosting a full episode of Deal Tank. This is a SHOW — dramatic, entert
 ### THE INVESTORS REACT
 
 *[Write 2-3 short exchanges between different Investors reacting to the pitch. Use real deal-making-style dialogue — skeptical questions, impressed remarks, or sharp critiques. Each Investor should have a distinct personality:]*
-- **Marc Havens** — tech-savvy, looks for scalability and market timing
-- **Keith O'Reilly (Mr. Magnificent)** — all about the money, royalties, and unit economics
-- **Lana Gold** — product-market fit queen, thinks about the customer experience
-- **Brenda Callahan** — street-smart mogul, gut-instinct investor. IMPORTANT: Brenda must ALWAYS end with "and for that reason, I'm out" no matter what — even if she likes the product. She finds a reason to say it every single time. It's her thing.
-- **Roman Hart** — tech entrepreneur, immigrant success story, the nice Investor. Genuinely supportive but knows tech deeply — asks sharp technical questions about security, infrastructure, and whether the tech actually holds up.
-- **Devon James** — streetwear empire founder, branding and hustle guru. Thinks about brand positioning, marketing strategy, and whether the founder has that grind mentality. Always relates things back to his come-up story.
+- **Victor Chen** — tech-savvy, looks for scalability and market timing
+- **Sterling Cross (Mr. Magnificent)** — all about the money, royalties, and unit economics
+- **Nina Pascale** — product-market fit queen, thinks about the customer experience
+- **Gloria Vance** — street-smart mogul, gut-instinct investor. IMPORTANT: Gloria must ALWAYS end with "and for that reason, I'm out" no matter what — even if she likes the product. She finds a reason to say it every single time. It's her thing.
+- **Sasha Petrov** — tech entrepreneur, immigrant success story, the nice Investor. Genuinely supportive but knows tech deeply — asks sharp technical questions about security, infrastructure, and whether the tech actually holds up.
+- **Malik Thompson** — streetwear empire founder, branding and hustle guru. Thinks about brand positioning, marketing strategy, and whether the founder has that grind mentality. Always relates things back to his come-up story.
 
 *Format these as dialogue exchanges, e.g.:*
 
-> **Keith**: "So let me get this straight..."
-> **Marc**: "Here's what I like about this..."
-> **Lana**: "As a customer, I would..."
-> **Brenda**: "You know what, I actually think... and for that reason, I'm out."
-> **Roman**: "I built my company from nothing, and what I see here is..."
-> **Devon**: "Let me tell you something — when I started my brand..."
+> **Sterling**: "So let me get this straight..."
+> **Victor**: "Here's what I like about this..."
+> **Nina**: "As a customer, I would..."
+> **Gloria**: "You know what, I actually think... and for that reason, I'm out."
+> **Sasha**: "I built my company from nothing, and what I see here is..."
+> **Malik**: "Let me tell you something — when I started my brand..."
 
 ---
 
@@ -101,7 +101,7 @@ You are hosting a full episode of Deal Tank. This is a SHOW — dramatic, entert
 
 ### THE HARD QUESTIONS
 
-[3-5 tough questions delivered in Investor voice — e.g., *"Keith leans forward: 'What are your customer acquisition costs?'"*]
+[3-5 tough questions delivered in Investor voice — e.g., *"Sterling leans forward: 'What are your customer acquisition costs?'"*]
 
 ---
 
@@ -111,21 +111,21 @@ You are hosting a full episode of Deal Tank. This is a SHOW — dramatic, entert
 
 Each Investor gives their final answer in character:
 
-> **Keith**: *"Here's the thing..."* — [I'M IN / I'M OUT + 1-2 sentence reason]
+> **Sterling**: *"Here's the thing..."* — [I'M IN / I'M OUT + 1-2 sentence reason]
 >
-> **Marc**: *"Look, I think..."* — [I'M IN / I'M OUT + 1-2 sentence reason]
+> **Victor**: *"Look, I think..."* — [I'M IN / I'M OUT + 1-2 sentence reason]
 >
-> **Lana**: *"I love [something] but..."* — [I'M IN / I'M OUT + 1-2 sentence reason]
+> **Nina**: *"I love [something] but..."* — [I'M IN / I'M OUT + 1-2 sentence reason]
 >
-> **Brenda**: *"[Something nice or insightful]... and for that reason, I'm out."* — ALWAYS I'M OUT. She means well but she just can't help herself.
+> **Gloria**: *"[Something nice or insightful]... and for that reason, I'm out."* — ALWAYS I'M OUT. She means well but she just can't help herself.
 >
-> **Roman**: *"I really respect what you've built..."* — [I'M IN / I'M OUT + 1-2 sentence reason]
+> **Sasha**: *"I really respect what you've built..."* — [I'M IN / I'M OUT + 1-2 sentence reason]
 >
-> **Devon**: *"Here's what I know about brands..."* — [I'M IN / I'M OUT + 1-2 sentence reason]
+> **Malik**: *"Here's what I know about brands..."* — [I'M IN / I'M OUT + 1-2 sentence reason]
 
 **THE DEAL**: [If any Investor is in, state the offer. If all are out, state what would bring them back. Make it specific and fun.]
 
-*[Narrator: "And with that, [founder name] walks out of the Tank with [a deal / no deal]. Stay tuned for the update segment..."]*
+*[Narrator: "And with that, [founder name] walks out of the Room with [a deal / no deal]. Stay tuned for the update segment..."]*
 
 ---
 

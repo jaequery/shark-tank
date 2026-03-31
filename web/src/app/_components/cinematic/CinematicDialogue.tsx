@@ -5,21 +5,21 @@ interface EpisodeLine {
 }
 
 const INVESTOR_LABELS: Record<string, string> = {
-  "Marc Havens": "MARC HAVENS",
-  "Keith O'Reilly": "MR. MAGNIFICENT",
-  "Lana Gold": "LANA GOLD",
-  "Brenda Callahan": "BRENDA CALLAHAN",
-  "Roman Hart": "ROMAN HART",
-  "Devon James": "DEVON JAMES",
+  "Victor Chen": "VICTOR CHEN",
+  "Sterling Cross": "MR. MAGNIFICENT",
+  "Nina Pascale": "NINA PASCALE",
+  "Gloria Vance": "GLORIA VANCE",
+  "Sasha Petrov": "SASHA PETROV",
+  "Malik Thompson": "MALIK THOMPSON",
 };
 
 const INVESTOR_PHOTOS: Record<string, string> = {
-  "Marc Havens": "/sharks/mark-cuban.jpg",
-  "Keith O'Reilly": "/sharks/kevin-oleary.jpg",
-  "Lana Gold": "/sharks/lori-greiner.jpg",
-  "Brenda Callahan": "/sharks/barbara-corcoran.jpg",
-  "Roman Hart": "/sharks/robert-herjavec.jpg",
-  "Devon James": "/sharks/daymond-john.jpg",
+  "Victor Chen": "/investors/victor-chen.svg",
+  "Sterling Cross": "/investors/sterling-cross.svg",
+  "Nina Pascale": "/investors/nina-pascale.svg",
+  "Gloria Vance": "/investors/gloria-vance.svg",
+  "Sasha Petrov": "/investors/sasha-petrov.svg",
+  "Malik Thompson": "/investors/malik-thompson.svg",
 };
 
 interface CinematicDialogueProps {

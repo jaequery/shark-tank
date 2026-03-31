@@ -1,6 +1,6 @@
 # Deal Tank
 
-A Claude Code plugin that evaluates your project as if you're pitching it on Deal Tank. Get brutally honest, entertaining feedback from a panel of virtual investors — **Marc Havens**, **Keith O'Reilly**, **Lana Gold**, **Brenda Callahan**, **Roman Hart**, and **Devon James**.
+A Claude Code plugin that evaluates your project as if you're pitching it on Deal Tank. Get brutally honest, entertaining feedback from a panel of virtual investors — **Victor Chen**, **Sterling Cross**, **Nina Pascale**, **Gloria Vance**, **Sasha Petrov**, and **Malik Thompson**.
 
 ## What It Does
 
@@ -18,8 +18,8 @@ When invoked, the skill analyzes your entire project — code, docs, git history
 ### From the plugin directory
 
 ```bash
-git clone https://github.com/jaelee/shark-tank.git
-claude --plugin-dir ./shark-tank
+git clone https://github.com/jaelee/deal-tank.git
+claude --plugin-dir ./deal-tank
 ```
 
 ### Manual installation
@@ -28,12 +28,12 @@ Copy the skill into your Claude Code skills directory:
 
 ```bash
 # User-level (available in all projects)
-mkdir -p ~/.claude/skills/shark-tank
-cp skills/shark-tank/SKILL.md ~/.claude/skills/shark-tank/
+mkdir -p ~/.claude/skills/deal-tank
+cp skills/deal-tank/SKILL.md ~/.claude/skills/deal-tank/
 
 # Project-level (shared via version control)
-mkdir -p .claude/skills/shark-tank
-cp skills/shark-tank/SKILL.md .claude/skills/shark-tank/
+mkdir -p .claude/skills/deal-tank
+cp skills/deal-tank/SKILL.md .claude/skills/deal-tank/
 ```
 
 ## Usage
@@ -41,7 +41,7 @@ cp skills/shark-tank/SKILL.md .claude/skills/shark-tank/
 In Claude Code, on any project:
 
 ```
-/shark-tank
+/deal-tank
 ```
 
 ## Evaluation Criteria

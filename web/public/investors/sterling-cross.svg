@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="circle"><circle cx="100" cy="100" r="100"/></clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8B6914"/>
+      <stop offset="100%" stop-color="#D4A843"/>
+    </linearGradient>
+  </defs>
+  <g clip-path="url(#circle)">
+    <rect width="200" height="200" fill="url(#bg)"/>
+    <!-- Suit jacket -->
+    <ellipse cx="100" cy="225" rx="80" ry="55" fill="#1a1a2e"/>
+    <!-- Shirt/collar -->
+    <polygon points="85,185 100,210 115,185" fill="white"/>
+    <!-- Tie -->
+    <polygon points="97,195 100,210 103,195 100,188" fill="#8B0000"/>
+    <!-- Neck -->
+    <rect x="88" y="150" width="24" height="28" rx="5" fill="#f5d0a9"/>
+    <!-- Head -->
+    <ellipse cx="100" cy="112" rx="44" ry="50" fill="#f5d0a9"/>
+    <!-- Bald head - just slightly receded silver hair on sides -->
+    <path d="M56 105 Q56 60 100 52 Q144 60 144 105" fill="#f5d0a9"/>
+    <path d="M56 108 Q54 95 58 85 Q56 80 58 75" fill="#c0c0c0" opacity="0.7"/>
+    <path d="M144 108 Q146 95 142 85 Q144 80 142 75" fill="#c0c0c0" opacity="0.7"/>
+    <!-- Eyebrows - stern, angular -->
+    <path d="M70 96 L90 93" fill="none" stroke="#808080" stroke-width="3" stroke-linecap="round"/>
+    <path d="M110 93 L130 96" fill="none" stroke="#808080" stroke-width="3" stroke-linecap="round"/>
+    <!-- Eyes - sharp, calculating -->
+    <ellipse cx="80" cy="105" rx="6" ry="4" fill="white"/>
+    <ellipse cx="120" cy="105" rx="6" ry="4" fill="white"/>
+    <circle cx="81" cy="105" r="3" fill="#4a6741"/>
+    <circle cx="121" cy="105" r="3" fill="#4a6741"/>
+    <circle cx="82" cy="104" r="1" fill="white"/>
+    <circle cx="122" cy="104" r="1" fill="white"/>
+    <!-- Nose -->
+    <path d="M100 107 L96 122 Q100 125 104 122 Z" fill="#e8b890" opacity="0.5"/>
+    <!-- Mouth - firm, straight -->
+    <path d="M87 134 Q100 136 113 134" fill="none" stroke="#c4846a" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Jaw line - strong -->
+    <path d="M58 115 Q60 150 100 158 Q140 150 142 115" fill="none" stroke="#e8b890" stroke-width="1" opacity="0.3"/>
+    <!-- Ears -->
+    <ellipse cx="56" cy="110" rx="6" ry="10" fill="#ecc198"/>
+    <ellipse cx="144" cy="110" rx="6" ry="10" fill="#ecc198"/>
+  </g>
+</svg>

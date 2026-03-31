@@ -10,7 +10,7 @@ const EXAMPLE_EVALUATIONS = [
     name: "NomNom AI",
     score: 8,
     scoreClass: "score-high",
-    investor: "KEITH",
+    investor: "STERLING",
     quote:
       "Hold on. You\u2019re telling me restaurants are paying you to tell them they ordered too much lettuce? That\u2019s the most beautiful business model I\u2019ve ever heard. You\u2019re selling common sense as a service. I want equity.",
     deal: true,
@@ -19,7 +19,7 @@ const EXAMPLE_EVALUATIONS = [
     name: "ParkingPal",
     score: 4,
     scoreClass: "score-mid",
-    investor: "MARC",
+    investor: "VICTOR",
     quote:
       "So your entire competitive advantage is\u2026 a push notification? My phone already gives me parking notifications. It\u2019s called my wife texting me \u2018you got a ticket again.\u2019",
     deal: false,
@@ -28,7 +28,7 @@ const EXAMPLE_EVALUATIONS = [
     name: "BlockchainPets",
     score: 2,
     scoreClass: "score-low",
-    investor: "BRENDA",
+    investor: "GLORIA",
     quote:
       "You know what, I actually love animals. I have three dogs. I once invested in a dog grooming company and tripled my money. So I really came into this one excited. But you want to put puppies on the blockchain, and I\u2019m pretty sure my dogs would rather eat the blockchain than live on it. I genuinely think you\u2019re a lovely person\u2026 and for that reason, I\u2019m out.",
     deal: false,
@@ -37,7 +37,7 @@ const EXAMPLE_EVALUATIONS = [
     name: "VibeCodeHQ",
     score: 6,
     scoreClass: "score-mid",
-    investor: "DEVON",
+    investor: "MALIK",
     quote:
       "I built my entire brand selling T-shirts out of a basement. You know what I didn\u2019t have? A \u2018vibe.\u2019 I had hustle. Your landing page says \u2018vibe-driven development\u2019 three times and I still don\u2019t know what you do.",
     deal: false,
@@ -46,14 +46,14 @@ const EXAMPLE_EVALUATIONS = [
     name: "FitBuddy",
     score: 7,
     scoreClass: "score-high",
-    investor: "LANA",
+    investor: "NINA",
     quote:
       "I\u2019m looking at this and thinking \u2014 you know what, this is actually delightful. The UX is clean, the onboarding took me thirty seconds. My only concern is that your \u2018AI personal trainer\u2019 told me to do 400 burpees and I\u2019m now emotionally damaged.",
     deal: true,
   },
 ];
 
-const BRENDA_OUTS = [
+const GLORIA_OUTS = [
   "You remind me of my first husband. Very confident, very wrong. And for that reason, I\u2019m out.",
   "I once turned down a deal that made someone a billionaire. I\u2019ll do it again right now. I\u2019m out.",
   "My gut says yes but my gut also said yes to that restaurant in 2008. I\u2019m out.",
@@ -63,12 +63,12 @@ const BRENDA_OUTS = [
 ];
 
 const INVESTORS = [
-  { name: "Marc Havens", src: "/sharks/mark-cuban.jpg", focus: "Tech & Scalability", trait: "Will ask about your AWS bill" },
-  { name: "Keith O'Reilly", src: "/sharks/kevin-oleary.jpg", focus: "Unit Economics", trait: "Wants royalties on your dreams" },
-  { name: "Lana Gold", src: "/sharks/lori-greiner.jpg", focus: "Product-Market Fit", trait: "Tested your app before you pitched" },
-  { name: "Brenda Callahan", src: "/sharks/barbara-corcoran.jpg", focus: "Gut Instinct", trait: "Has never not been out" },
-  { name: "Roman Hart", src: "/sharks/robert-herjavec.jpg", focus: "Security & Infra", trait: "Already found 3 vulnerabilities" },
-  { name: "Devon James", src: "/sharks/daymond-john.jpg", focus: "Brand & Hustle", trait: "Will relate this to T-shirts" },
+  { name: "Victor Chen", src: "/investors/victor-chen.svg", focus: "Tech & Scalability", trait: "Will ask about your AWS bill" },
+  { name: "Sterling Cross", src: "/investors/sterling-cross.svg", focus: "Unit Economics", trait: "Wants royalties on your dreams" },
+  { name: "Nina Pascale", src: "/investors/nina-pascale.svg", focus: "Product-Market Fit", trait: "Tested your app before you pitched" },
+  { name: "Gloria Vance", src: "/investors/gloria-vance.svg", focus: "Gut Instinct", trait: "Has never not been out" },
+  { name: "Sasha Petrov", src: "/investors/sasha-petrov.svg", focus: "Security & Infra", trait: "Already found 3 vulnerabilities" },
+  { name: "Malik Thompson", src: "/investors/malik-thompson.svg", focus: "Brand & Hustle", trait: "Will relate this to T-shirts" },
 ];
 
 function LandingPage() {
@@ -88,7 +88,7 @@ function LandingPage() {
         </p>
         <div style={{ marginTop: "2rem" }}>
           <button className="btn-cta" onClick={() => signIn("google")}>
-            Enter the Tank
+            Enter the Room
           </button>
         </div>
       </header>
@@ -106,7 +106,7 @@ function LandingPage() {
                 </span>
               </div>
               <div className="teaser-quote">
-                <span className="shark-tag">{ev.investor}</span>
+                <span className="investor-tag">{ev.investor}</span>
                 {" "}&mdash; &ldquo;{ev.quote}&rdquo;
               </div>
               <div className={`teaser-verdict ${ev.deal ? "verdict-in" : "verdict-out"}`}>
@@ -117,19 +117,19 @@ function LandingPage() {
         </div>
       </div>
 
-      {/* Brenda's Greatest Hits */}
+      {/* Gloria's Greatest Hits */}
       <div className="landing-section">
         <div className="landing-section-inner">
           <div className="section-title" style={{ textAlign: "center" }}>
-            Brenda Callahan&apos;s Greatest Hits
+            Gloria Vance&apos;s Greatest Hits
           </div>
           <div className="section-subtitle">
-            In {BRENDA_OUTS.length} episodes, Brenda has invested in exactly 0 startups.
+            In {GLORIA_OUTS.length} episodes, Gloria has invested in exactly 0 startups.
             Her record remains perfect.
           </div>
-          <div className="brenda-quotes">
-            {BRENDA_OUTS.map((quote, i) => (
-              <div key={i} className="brenda-quote">
+          <div className="gloria-quotes">
+            {GLORIA_OUTS.map((quote, i) => (
+              <div key={i} className="gloria-quote">
                 &ldquo;{quote}&rdquo;
               </div>
             ))}
@@ -169,7 +169,7 @@ function LandingPage() {
                 <div className="step-title">Write your pitch</div>
                 <div className="step-desc">
                   Describe your startup in a few sentences. Be honest.
-                  Keith can smell inflated metrics through the screen.
+                  Sterling can smell inflated metrics through the screen.
                 </div>
               </div>
             </div>
@@ -179,7 +179,7 @@ function LandingPage() {
                 <div className="step-title">Watch the episode unfold</div>
                 <div className="step-desc">
                   Six AI investors debate your startup in a full cinematic episode.
-                  Expect tough love. Brenda will find a creative way to say no.
+                  Expect tough love. Gloria will find a creative way to say no.
                 </div>
               </div>
             </div>
@@ -189,7 +189,7 @@ function LandingPage() {
                 <div className="step-title">Get your scorecard</div>
                 <div className="step-desc">
                   Scored across 7 dimensions. No participation trophies.
-                  Devon will somehow relate your SaaS product to streetwear.
+                  Malik will somehow relate your SaaS product to streetwear.
                 </div>
               </div>
             </div>
@@ -201,10 +201,10 @@ function LandingPage() {
       <div className="landing-section landing-section-alt">
         <div className="landing-section-inner">
           <div className="final-cta">
-            <h2>Ready to face the tank?</h2>
+            <h2>Ready to face the panel?</h2>
             <p>
               Your pitch will be questioned. Your unit economics will be mocked.
-              Devon will tell you about his T-shirt empire. Brenda will wish you well
+              Malik will tell you about his T-shirt empire. Gloria will wish you well
               on your journey, and then leave.
             </p>
             <button className="btn-cta" onClick={() => signIn("google")}>
@@ -219,7 +219,7 @@ function LandingPage() {
 
       {/* Footer easter egg */}
       <div className="landing-footer">
-        Brenda Callahan&apos;s participation does not constitute an endorsement, an investment,
+        Gloria Vance&apos;s participation does not constitute an endorsement, an investment,
         or any indication that she will not be out. She will be out.
       </div>
     </>

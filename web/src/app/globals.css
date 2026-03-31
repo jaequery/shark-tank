@@ -294,8 +294,8 @@ a:hover {
   text-align: center;
 }
 
-/* Shark tags (uniform — no per-shark colors) */
-.shark-tag {
+/* Investor tags (uniform — no per-investor colors) */
+.investor-tag {
   display: inline-block;
   font-size: 0.6875rem;
   font-weight: 600;
@@ -864,8 +864,8 @@ a:hover {
   margin-bottom: 2rem;
 }
 
-/* Brenda quotes */
-.brenda-quotes {
+/* Gloria quotes */
+.gloria-quotes {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -873,7 +873,7 @@ a:hover {
   margin: 0 auto;
 }
 
-.brenda-quote {
+.gloria-quote {
   font-size: 0.9375rem;
   color: var(--text-muted);
   line-height: 1.7;

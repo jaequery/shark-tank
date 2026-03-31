@@ -16,12 +16,12 @@ interface EpisodeLine {
 }
 
 const INVESTOR_LABELS: Record<string, string> = {
-  "Marc Havens": "MARC",
-  "Keith O'Reilly": "KEITH",
-  "Lana Gold": "LANA",
-  "Brenda Callahan": "BRENDA",
-  "Roman Hart": "ROMAN",
-  "Devon James": "DEVON",
+  "Victor Chen": "VICTOR",
+  "Sterling Cross": "STERLING",
+  "Nina Pascale": "NINA",
+  "Gloria Vance": "GLORIA",
+  "Sasha Petrov": "SASHA",
+  "Malik Thompson": "MALIK",
 };
 
 function ScoreBadge({ score }: { score: number }) {
@@ -45,7 +45,7 @@ function EpisodeLine({ line }: { line: EpisodeLine }) {
     return (
       <div className="episode-line episode-founder">
         <div className="episode-speaker">
-          <span className="shark-tag">YOU</span>
+          <span className="investor-tag">YOU</span>
           {line.direction && <span className="stage-direction">[{line.direction}]</span>}
         </div>
         <div className="episode-text">{line.text}</div>
@@ -56,7 +56,7 @@ function EpisodeLine({ line }: { line: EpisodeLine }) {
   return (
     <div className="episode-line">
       <div className="episode-speaker">
-        <span className="shark-tag">
+        <span className="investor-tag">
           {label ?? line.speaker.toUpperCase()}
         </span>
         {line.direction && <span className="stage-direction">[{line.direction}]</span>}

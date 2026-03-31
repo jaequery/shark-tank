@@ -25,7 +25,7 @@ export default function CinematicVerdict({
           <>
             <div className="cine-verdict-nodeal-title">NO DEAL</div>
             <div className="cine-verdict-deal-text">
-              The Sharks have spoken.
+              The Investors have spoken.
             </div>
           </>
         )}
