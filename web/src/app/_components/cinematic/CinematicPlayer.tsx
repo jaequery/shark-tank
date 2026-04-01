@@ -186,7 +186,8 @@ export default function CinematicPlayer({
           )}
 
           <button className="cine-nav cine-nav-next" onClick={next} title="Next (Right Arrow / Space)">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <span className="cine-nav-hint">Tap to continue</span>
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="9 18 15 12 9 6" />
             </svg>
           </button>

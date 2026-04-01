@@ -290,8 +290,6 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  width: 72px;
-  height: 72px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -312,15 +310,67 @@
 
 .cine-nav-prev {
   left: 2rem;
+  width: 72px;
+  height: 72px;
+}
+
+.cine-nav-prev svg {
+  width: 48px;
+  height: 48px;
+}
+
+/* Next button — large, pulsing, unmissable */
+@keyframes cine-pulse {
+  0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.7; }
+  50% { transform: translateY(-50%) scale(1.12); opacity: 1; }
+}
+
+@keyframes cine-arrow-bounce {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(6px); }
 }
 
 .cine-nav-next {
-  right: 2rem;
+  right: 1.5rem;
+  width: 120px;
+  height: 120px;
+  flex-direction: column;
+  gap: 0.35rem;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.7);
+  animation: cine-pulse 2s ease-in-out infinite;
 }
 
-.cine-nav svg {
-  width: 48px;
-  height: 48px;
+.cine-nav-next:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.95);
+  animation: none;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.cine-nav-next:active {
+  transform: translateY(-50%) scale(0.95);
+  color: white;
+}
+
+.cine-nav-next svg {
+  width: 64px;
+  height: 64px;
+  animation: cine-arrow-bounce 1.2s ease-in-out infinite;
+}
+
+.cine-nav-next:hover svg {
+  animation: none;
+}
+
+.cine-nav-hint {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
 }
 
 /* ── Close ── */
@@ -474,22 +524,30 @@
     font-size: 2rem;
   }
 
-  .cine-nav {
-    width: 56px;
-    height: 56px;
+  .cine-nav-prev {
+    left: 0.5rem;
+    width: 48px;
+    height: 48px;
   }
 
-  .cine-nav-prev {
-    left: 0.75rem;
+  .cine-nav-prev svg {
+    width: 32px;
+    height: 32px;
   }
 
   .cine-nav-next {
-    right: 0.75rem;
+    right: 0.5rem;
+    width: 90px;
+    height: 90px;
   }
 
-  .cine-nav svg {
-    width: 36px;
-    height: 36px;
+  .cine-nav-next svg {
+    width: 48px;
+    height: 48px;
+  }
+
+  .cine-nav-hint {
+    font-size: 0.5625rem;
   }
 
   .cine-investor-photo {
